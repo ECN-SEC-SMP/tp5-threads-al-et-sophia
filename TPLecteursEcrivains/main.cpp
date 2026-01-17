@@ -34,16 +34,20 @@ void ecrivain(int numEcrivain)
 {
   int x;
 
-  for (int i = 0; i < 4; i++)
+  write.P(numEcrivain);
+
+  if (ressourcePartagee == 0)
   {
-    write.P(numEcrivain);
-    std::cout << "Ecrivain n° " << numEcrivain << " en cours " << endl;
-    x = ressourcePartagee;
-    this_thread::sleep_for(chrono::milliseconds(rand() % 20000));
-    std::cout << "valeur à incrémenter de la ressourcePartagee = " << x << "  " << endl;
-    ressourcePartagee = x + 1;
-    write.V(numEcrivain);
+    for (int i = 0; i < 4; i++)
+    {
+      std::cout << "Ecrivain n° " << numEcrivain << " en cours " << endl;
+      x = ressourcePartagee;
+      this_thread::sleep_for(chrono::milliseconds(rand() % 20000));
+      std::cout << "valeur à incrémenter de la ressourcePartagee = " << x << "  " << endl;
+      ressourcePartagee = x + 1;
+    }
   }
+  write.V(numEcrivain);
 }
 
 int main()
