@@ -23,7 +23,7 @@ Nos répondrons donc aux questions demandées et apporterons une conclusion sur 
 
 ## Partie 1 : Les lecteurs-écrivains
 
-### Question 1zz :
+### Question 1 :
 
 On veut ici modifier le processus lecteur et écrivains (cf dossier "TPLecteursEcrivants) afin que les ressources partagées entre les deux fonctions puissent être cohérentes.
 
@@ -34,6 +34,7 @@ A l'aide des fonctions sem.P() et sem.V(), on peut synchroniser les tâches afin
 Le code de ces fonctions est le suivant : 
 
 ---
+
 void lecteur(int numLecteur)
 {
   read.P(numLecteur);
@@ -57,7 +58,9 @@ void lecteur(int numLecteur)
   }
   read.V(numLecteur);
 }
+
 ---
+
 void ecrivain(int numEcrivain)
 {
   int x;
@@ -73,6 +76,7 @@ void ecrivain(int numEcrivain)
     write.V(numEcrivain);
   }
 }
+
 ---
 
 
